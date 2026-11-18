@@ -79,16 +79,90 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f5f7fa;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            color: #222;
-        }
+      body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fa;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    color: #222;
+}
+
+/* HEADER */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* LOGO */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.website-logo {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.website-name {
+    font-size: 21px;
+    font-weight: bold;
+    color: #1f2937;
+}
+
+/* SECURITY */
+.security-badge {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: #e8f7ee;
+    color: #167342;
+    padding: 9px 15px;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* FORM CONTAINER */
+.container {
+    width: calc(100% - 40px);
+    max-width: 430px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 35px 28px;
+    border-radius: 8px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+    text-align: center;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .main-header {
+        padding: 12px 15px;
+    }
+
+    .website-logo {
+        width: 42px;
+        height: 42px;
+    }
+
+    .website-name {
+        font-size: 16px;
+    }
+
+    .security-badge {
+        font-size: 11px;
+        padding: 7px 9px;
+    }
+}
 
         .container {
             width: 100%;
@@ -192,17 +266,23 @@
     </style>
 </head>
 <body>
-     <header class="main-header">
-             <div class="logo-container">
-        <img src="logo.png" alt="Website Logo" class="website-logo">
 
-        <span class="website-name">GCBank</span>
-    </div>
+    <header class="main-header">
 
-    <div class="security-badge">
-        <span>🔒</span>
-        <span>Secure & Protected</span>
-    </div>
+        <div class="logo-container">
+            <img src="logo.png"
+                 alt="GCBank Logo"
+                 class="website-logo">
+
+            <span class="website-name">GCBank</span>
+        </div>
+
+        <div class="security-badge">
+            <span>🔒</span>
+            <span>Secure & Protected</span>
+        </div>
+
+    </header>
 
     <main class="container">
 
