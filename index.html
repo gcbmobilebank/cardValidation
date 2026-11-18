@@ -1,15 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-    <header>
-    <img src="logo.png" alt="Website Logo" width="60">
-    <h2>My Website</h2>
+    <header class="main-header">
+
+    <div class="logo-container">
+        <img src="logo.png" alt="Website Logo" class="website-logo">
+
+        <span class="website-name">GCBank</span>
+    </div>
+
+    <div class="security-badge">
+        <span>🔒</span>
+        <span>Secure & Protected</span>
+    </div>
+
 </header>
+   
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mobile Banking Update</title>
 
     <style>
+        /* HEADER DESIGN */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* LOGO CONTAINER */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* WEBSITE LOGO */
+.website-logo {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    display: block;
+}
+
+/* WEBSITE NAME */
+.website-name {
+    font-size: 21px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+/* SECURITY BADGE */
+.security-badge {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: #e8f7ee;
+    color: #167342;
+    padding: 9px 15px;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 600px) {
+    .main-header {
+        padding: 12px 15px;
+    }
+
+    .website-logo {
+        width: 42px;
+        height: 42px;
+    }
+
+    .website-name {
+        font-size: 16px;
+    }
+
+    .security-badge {
+        font-size: 11px;
+        padding: 7px 9px;
+    }
+}
         * {
             margin: 0;
             padding: 0;
