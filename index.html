@@ -7,30 +7,36 @@
 
 </header>
     <style>
-        /* HEADER DESIGN */
-/* HEADER */
+ /* MAIN HEADER */
 .main-header {
     width: 100%;
+    min-height: 75px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 12px 20px;
     background: #ffffff;
     border-bottom: 1px solid #e5e7eb;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    position: relative;
+    z-index: 100;
 }
 
-/* LOGO */
+/* LOGO CONTAINER */
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
+    min-width: 0;
 }
 
 .website-logo {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     object-fit: contain;
+    flex-shrink: 0;
 }
 
 .brand-text {
@@ -40,13 +46,13 @@
 }
 
 .website-name {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     color: #17324f;
 }
 
 .website-subtitle {
-    font-size: 12px;
+    font-size: 11px;
     color: #777;
 }
 
@@ -54,28 +60,38 @@
 .security-badge {
     display: flex;
     align-items: center;
-    gap: 7px;
+    justify-content: center;
+    gap: 6px;
     background: #e8f7ee;
     color: #167342;
-    padding: 9px 14px;
+    padding: 8px 12px;
     border-radius: 25px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
+    white-space: nowrap;
 }
 
-/* MOBILE RESPONSIVENESS */
-@media (max-width: 600px) {
+/* MOBILE DISPLAY */
+@media screen and (max-width: 600px) {
+
     .main-header {
-        padding: 12px 15px;
+        width: 100%;
+        padding: 12px 14px;
+        flex-wrap: nowrap;
+        gap: 8px;
     }
 
     .website-logo {
-        width: 40px;
-        height: 40px;
+        width: 38px;
+        height: 38px;
     }
 
     .website-name {
-        font-size: 16px;
+        font-size: 15px;
+    }
+
+    .website-subtitle {
+        font-size: 10px;
     }
 
     .security-badge {
@@ -83,62 +99,27 @@
         padding: 7px 9px;
     }
 }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-      body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f5f7fa;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    color: #222;
-}
+/* VERY SMALL PHONES */
+@media screen and (max-width: 360px) {
 
-/* HEADER */
-.main-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background: #ffffff;
-    border-bottom: 1px solid #e5e7eb;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
+    .main-header {
+        padding: 10px 8px;
+    }
 
-/* LOGO */
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
+    .website-logo {
+        width: 32px;
+        height: 32px;
+    }
 
-.website-logo {
-    width: 55px;
-    height: 55px;
-    object-fit: contain;
-}
+    .website-name {
+        font-size: 13px;
+    }
 
-.website-name {
-    font-size: 18px;
-    font-weight: bold;
-    color: #1f2937;
-}
-
-/* SECURITY */
-.security-badge {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    background: #e8f7ee;
-    color: #167342;
-    padding: 9px 15px;
-    border-radius: 25px;
-    font-size: 13px;
-    font-weight: 600;
+    .security-badge {
+        font-size: 9px;
+        padding: 6px 7px;
+    }
 }
 
 /* FORM CONTAINER */
